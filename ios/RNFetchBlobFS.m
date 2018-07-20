@@ -517,12 +517,12 @@ NSMutableDictionary *fileStreams = nil;
                 NSCharacterSet *cset = [NSCharacterSet characterSetWithCharactersInString:@".png"];
                 NSRange range = [path rangeOfCharacterFromSet:cset];
                 if (range.location == NSNotFound) {
-                    onComplete([fileContent base64EncodedStringWithOptions:0], nil);
+                    onComplete([fileContent base64EncodedStringWithOptions:0], nil, nil);
                 } else {
                     UIImage *image       = [UIImage imageWithContentsOfFile:path];
                     NSData *imageData    = UIImagePNGRepresentation(image);
                     NSString *dataString = [imageData base64EncodedStringWithOptions:0];
-                    onComplete(dataString, nil);
+                    onComplete(dataString, nil, nil);
                 }
             }
             else if ([[encoding lowercaseString] isEqualToString:@"ascii"]) {
